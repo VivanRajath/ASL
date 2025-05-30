@@ -1,76 +1,75 @@
 ASL Hand Sign Recognition using MediaPipe & Random Forest
-This project uses MediaPipe to extract hand landmarks and a Random Forest classifier to recognize American Sign Language (ASL) letters in real-time via webcam or from static image datasets.
+This project performs American Sign Language (ASL) letter recognition using MediaPipe for hand tracking and a Random Forest model trained on landmark data.
 
-Project Structure
+📁 Project Structure
+ASL-Detector/
+├── dataset/ → asl_alphabet_train/ (A/, B/, ..., Z/)
+├── train.py → Train the model
+├── test.py → Evaluate the model
+├── predict.py → Real-time webcam ASL detection
+├── model.py → Loads MediaPipe hand model
+├── utils.py → Extracts hand landmarks
+├── requirements.txt → Python dependencies
+├── asl_model.pkl → Trained model (auto-generated)
+└── README.md → Project documentation
 
-ASL/
-│
-├── dataset/
-│   └── asl_alphabet_train/   # Kaggle dataset folder (A/, B/, ..., Z/)
-│
-├── train.py                  # Train model from dataset
-├── test.py                   # Evaluate model accuracy
-├── predict.py                # Real-time ASL detection from webcam
-│
-├── model.py                  # MediaPipe hand model loader
-├── utils.py                  # Landmark extraction and preprocessing
-├── requirements.txt          # Python dependencies
-├── README.md                 # Project documentation (this file)
-└── asl_model.pkl             # Trained model (generated after training)
+📦 Installation
+Clone this repository:
+git clone https://github.com/yourusername/ASL-Detector.git
+cd ASL-Detector
 
-
-
-🧪 Dataset
-Use the Kaggle dataset: https://www.kaggle.com/datasets/grassknoted/asl-alphabet
-
-⚙️ Installation
-git clone https://github.com/yourusername/ASL.git
-cd ASL
-
-# Create virtual environment (optional)
+(Optional) Create a virtual environment:
 python -m venv venv
-source venv/bin/activate   # or venv\Scripts\activate on Windows
+source venv/bin/activate
+(On Windows: venv\Scripts\activate)
 
-# Install dependencies
+Install dependencies:
 pip install -r requirements.txt
-🏋️‍♂️ Training
-Train the model using MediaPipe hand landmarks:
 
+📂 Dataset Setup
+Download the ASL Alphabet dataset from Kaggle:
+https://www.kaggle.com/datasets/grassknoted/asl-alphabet
 
+Extract it like this:
+dataset/asl_alphabet_train/A/
+dataset/asl_alphabet_train/B/
+...
+
+🏋️‍♂️ Train the Model
+Run:
 python train.py
-This will generate a trained model saved as asl_model.pkl.
 
-Evaluate the trained model:
+This creates asl_model.pkl.
 
-
+🧪 Test the Model
+Run:
 python test.py
-You’ll get the test accuracy printed in the console.
 
-Real-Time Prediction (Webcam)
-Use your webcam to detect ASL signs in real time:
-
+🎥 Real-Time ASL Detection
+Run:
 python predict.py
-✋ Make sure your hand is clearly visible in the camera frame. Press q to exit.
 
-Utilities
-model.py: Initializes MediaPipe hand detection model
+✋ Show your hand signs in front of your webcam.
+Press q to quit.
 
-utils.py: Extracts 21 hand landmark coordinates (x, y, z)
-
-Requirements
-opencv-python
+✅ Requirements
 mediapipe
+
+opencv-python
+
 scikit-learn
+
 joblib
+
 tqdm
-🚀 Future Enhancements
-Add GUI with sign history
 
-Use CNN with landmark heatmaps for better accuracy
+Install using:
+pip install -r requirements.txt
 
-Train using your own webcam gesture data
+🚀 Future Improvements
+GUI for interaction
 
+Deep Learning upgrade
 
-📄 License
-MIT License
+Webcam-based custom training
 
