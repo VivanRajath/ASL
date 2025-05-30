@@ -1,75 +1,40 @@
-ASL Hand Sign Recognition using MediaPipe & Random Forest
-This project performs American Sign Language (ASL) letter recognition using MediaPipe for hand tracking and a Random Forest model trained on landmark data.
+ASL Hand Sign Recognition
+This project uses MediaPipe to detect hand landmarks and trains a Random Forest model to recognize American Sign Language (ASL) alphabet letters. It includes real-time prediction using your webcam.
 
-📁 Project Structure
-ASL-Detector/
-├── dataset/ → asl_alphabet_train/ (A/, B/, ..., Z/)
-├── train.py → Train the model
-├── test.py → Evaluate the model
-├── predict.py → Real-time webcam ASL detection
-├── model.py → Loads MediaPipe hand model
-├── utils.py → Extracts hand landmarks
-├── requirements.txt → Python dependencies
-├── asl_model.pkl → Trained model (auto-generated)
-└── README.md → Project documentation
+What This Project Does
+Uses the ASL Alphabet dataset from Kaggle
 
-📦 Installation
-Clone this repository:
-git clone https://github.com/yourusername/ASL-Detector.git
-cd ASL-Detector
+Extracts hand landmarks using MediaPipe
 
-(Optional) Create a virtual environment:
-python -m venv venv
-source venv/bin/activate
-(On Windows: venv\Scripts\activate)
+Trains a Random Forest model
 
-Install dependencies:
-pip install -r requirements.txt
+Tests accuracy on validation data
 
-📂 Dataset Setup
-Download the ASL Alphabet dataset from Kaggle:
-https://www.kaggle.com/datasets/grassknoted/asl-alphabet
+Predicts hand signs in real time using your webcam
 
-Extract it like this:
-dataset/asl_alphabet_train/A/
-dataset/asl_alphabet_train/B/
-...
+Requirements
+You need the following Python libraries:
 
-🏋️‍♂️ Train the Model
-Run:
-python train.py
-
-This creates asl_model.pkl.
-
-🧪 Test the Model
-Run:
-python test.py
-
-🎥 Real-Time ASL Detection
-Run:
-python predict.py
-
-✋ Show your hand signs in front of your webcam.
-Press q to quit.
-
-✅ Requirements
 mediapipe
-
 opencv-python
-
 scikit-learn
-
 joblib
-
 tqdm
 
-Install using:
-pip install -r requirements.txt
+Install them using pip or manually add them to your environment.
 
-🚀 Future Improvements
-GUI for interaction
+How to Use
+Step 1: Download the ASL dataset from Kaggle and place it inside a folder named 'dataset'
 
-Deep Learning upgrade
+Step 2: Run the training script using train.py to create the model
 
-Webcam-based custom training
+Step 3: Test the model using test.py
 
+Step 4: Run predict.py to use your webcam for real-time ASL recognition
+
+Make sure your webcam is working. Show your hand clearly in front of the camera. Press 'q' to quit.
+
+Notes
+This model does not use raw images. It works on landmark positions of your hand joints.
+Make sure your background is clear and your hand is visible for best performance.
+The trained model is saved as 'asl_model.pkl' after running the training script.
