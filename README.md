@@ -1,5 +1,5 @@
 
-# 🖐️ ASL Hand Sign Recognition
+# ASL Hand Sign Recognition
 
 This project uses [MediaPipe](https://google.github.io/mediapipe/) to extract hand landmarks and a **Random Forest** model to recognize American Sign Language (ASL) alphabet letters. It also includes **real-time sign recognition** using your webcam.
 
@@ -7,11 +7,11 @@ This project uses [MediaPipe](https://google.github.io/mediapipe/) to extract ha
 
 ## 📌 Features
 
-- 📁 Uses the [ASL Alphabet dataset](https://www.kaggle.com/datasets/grassknoted/asl-alphabet) from Kaggle  
-- 🧠 Extracts hand landmarks using MediaPipe  
-- 🌲 Trains a Random Forest classifier on landmark data  
-- 📊 Tests accuracy on validation data  
-- 📷 Predicts ASL hand signs in real-time via webcam  
+-  Uses the [ASL Alphabet dataset](https://www.kaggle.com/datasets/grassknoted/asl-alphabet) from Kaggle  
+-  Extracts hand landmarks using MediaPipe  
+-  Trains a Random Forest classifier on landmark data  
+-  Tests accuracy on validation data  
+-  Predicts ASL hand signs in real-time via webcam  
 
 ---
 
@@ -33,17 +33,26 @@ pip install mediapipe opencv-python scikit-learn joblib tqdm
    https://www.kaggle.com/datasets/grassknoted/asl-alphabet  
 2. Extract it and place it inside a folder named `dataset` in the root of this project.
 
-### 🏋️‍♂️ Step 2: Train the Model
+
+
+### Step 2 : Extract the labels from Dataset
+
+```
+python data_extractor.py   
+```
+
+
+###  Step 3: Train the Model
 
 Run the training script:
 
 ```
-python train.py
+python train.py   
 ```
 
 This will train and save the model as `asl_model.pkl`.
 
-### ✅ Step 3: Test the Model
+###  Step 4: Test the Model
 
 Evaluate the model:
 
@@ -51,7 +60,7 @@ Evaluate the model:
 python test.py
 ```
 
-### 🔮 Step 4: Real-Time Prediction
+###  Step 5: Real-Time Prediction
 
 Start real-time webcam recognition:
 
